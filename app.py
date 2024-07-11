@@ -38,9 +38,8 @@ If the image is not of a food item, respond with:
 genai.configure(api_key=API_KEY)
 
 def generate_recipe_from_image(image_path):
-    image_url = f"http://localhost:5000/{image_path}"
 
-    img = PIL.Image.open(image_url)
+    img = PIL.Image.open(image_path)
     model = genai.GenerativeModel(model_name='gemini-pro-vision')
     response = model.generate_content([PROMT, img], stream=False)
 
@@ -78,6 +77,7 @@ def upload_image():
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
+        print(file_path)
         recipe = generate_recipe_from_image(file_path)
         if generate_recipe_from_image == ' Error: The image is not recognized as food.':
             return jsonify({'error': 'The image is not recognized as food'})

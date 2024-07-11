@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recipe Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Recipe Result</h1>
+    <div class="result-container">
+        <img src="{{ image_url }}" alt="Uploaded Food Image" class="food-image">
+        <div class="recipe-details">
+            <h2>Recipe:</h2>
+            <p>{{ recipe }}</p>
+        </div>
+    </div>
+    <a href="/">Upload another image</a>
+</body>
+</html>
