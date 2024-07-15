@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
 import os
 
@@ -81,7 +81,7 @@ def upload_image():
         recipe = generate_recipe_from_image(file_path)
         if generate_recipe_from_image == ' Error: The image is not recognized as food.':
             return jsonify({'error': 'The image is not recognized as food'})
-        return jsonify({'recipe': recipe})
+        return render_template('result.html', image_url=url_for('static', filename=f'uploads/{filename}'), recipe=recipe)
     return jsonify({'error': 'File type not allowed'})
 
 if __name__ == '__main__':
