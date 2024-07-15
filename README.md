@@ -1,7 +1,5 @@
 # Food Recipe Generator
 
-![Food Recipe Generator](https://your-image-url.com/banner.png) <!-- Replace with your banner image URL -->
-
 ## Overview
 
 The Food Recipe Generator is a web application that allows users to upload an image of any food item and receive the ingredients and detailed instructions on how to make it. If the uploaded image is not recognized as food, the application returns an error message.
